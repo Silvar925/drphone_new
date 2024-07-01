@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #0F1654;
+  --alt-color: #182FAE;
+  --button-color: rgb(237, 58, 134);
+  --backgorund-gradient: linear-gradient(0deg, #0F175E, #0F175E),
+  radial-gradient(40.13% 62.18% at 50% 57.69%, #1934BF 0%, rgba(25, 52, 191, 0) 100%);
+}
+
+body {
+  background: var(--backgorund-gradient);
+  background-blend-mode: overlay;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+//Миксин
+@mixin setFont($family, $size, $weight, $color) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}

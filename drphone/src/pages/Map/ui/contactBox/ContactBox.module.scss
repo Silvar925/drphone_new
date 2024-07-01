@@ -1,0 +1,52 @@
+@use "src/app/styles.scss" as *;
+
+.contactBox {
+  position: absolute;
+  display: flex;
+  gap: 40px;
+  left: 310px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 42px;
+
+  z-index: 2;
+
+  header h2 {
+    @include setFont('Montserrat', 32px, 600, black)
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    //width: 439px;
+
+    li {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px;
+      width: 330px;
+      border: 1px solid black;
+
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  @include setFont('Montserrat', 20px, 600, black)
+}
+
+.text {
+  @include setFont('Montserrat', 16px, 500, black)
+}

@@ -1,0 +1,51 @@
+@use "src/app/styles.scss" as *;
+
+.footer {
+  display: flex;
+  background-color: var(--main-color);
+  width: 100%;
+  justify-content: space-between;
+  padding: 32px 315px;
+}
+
+.left {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+
+  img {
+    height: 46px;
+    width: 180px;
+  }
+
+  ul {
+    display: flex;
+    gap: 44px;
+
+    li span {
+      color: white;
+      @include setFont('Montserrat', 16px, 400, lightgray)
+    }
+  }
+}
+
+.right {
+  display: flex;
+  gap: 60px;
+
+  ul {
+    display: flex;
+    gap: 10px;
+  }
+
+  img {
+    width: 265px;
+    height: 41px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+  .footer {
+    display: none;
+  }
+}

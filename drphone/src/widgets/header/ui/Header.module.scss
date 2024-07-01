@@ -1,0 +1,19 @@
+@use "src/app/styles.scss" as *;
+
+.mainHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logoBox {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    @include setFont('Russo One', 36px, 400, white)
+  }
+}

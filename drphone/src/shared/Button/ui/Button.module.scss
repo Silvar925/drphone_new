@@ -1,0 +1,20 @@
+@use "src/app/styles.scss" as *;
+
+.button {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 30px;
+  text-align: center;
+  border-radius: 59px;
+  backdrop-filter: blur(5px);
+  background-color: var(--button-color);
+  cursor: pointer;
+  @include setFont('Montserrat', 18x, 500, white);
+  transition: background-color 0.3s ease; 
+
+
+  &:hover {
+    background-color: rgb(149, 29, 80);
+  }
+}

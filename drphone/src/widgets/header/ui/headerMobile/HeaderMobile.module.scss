@@ -1,0 +1,23 @@
+.inputBox {
+  display: flex;
+  background-color: var(--alt-color);
+  height: 54px;
+  border-radius: 20px;
+
+  input {
+    background-color: var(--alt-color);
+    border: none;
+    outline: none;
+    padding: 10px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--alt-color);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+  }
+}

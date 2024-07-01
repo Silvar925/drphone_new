@@ -1,0 +1,9 @@
+@use "src/app/styles" as *;
+
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  @include setFont('Montserrat', 16px, 500, white)
+}
