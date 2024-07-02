@@ -1,10 +1,16 @@
 import styles from './Map.module.scss';
 import {ContactBox} from "./contactBox/ContactBox.jsx";
+import {ContactBoxMobile} from "./contactBoxMobile/ContactBoxMobile.jsx";
+import {useIsMobile} from "../../../shared/hooks/useIsMobile.jsx";
 
 export const Map = () => {
+    const isMobile = useIsMobile();
+
     return (
-        <section className={styles.container}>
-            <ContactBox/>
+        <section className={styles.container} style={isMobile ? {marginTop: '24px'} : {}}>
+            {
+                isMobile === false ? <ContactBox/> : <ContactBoxMobile/>
+            }
 
             <div style={{position: 'relative', overflow: 'hidden'}}>
                 <a

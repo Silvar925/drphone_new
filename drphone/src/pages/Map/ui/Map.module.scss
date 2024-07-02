@@ -2,3 +2,12 @@
   position: relative;
   width: 100%;
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+

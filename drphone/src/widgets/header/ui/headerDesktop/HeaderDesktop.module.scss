@@ -4,6 +4,39 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  position: relative; /* Добавлено для позиционирования ul */
+
+  .menuList {
+    z-index: 2;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .menuListOpen {
+    max-height: 500px;
+    padding: 60px 45px;
+  }
+
+  ul {
+    background-color: var(--alt-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 89px;
+    margin: 0; /* Убираем возможные отступы */
+    list-style: none; /* Убираем маркеры списка */
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li a {
+      color: white;
+      text-decoration: none; /* Убираем подчеркивание */
+      @include setFont('Montserrat', 16px, 500, white);
+    }
+  }
 }
 
 .logoBox {
@@ -14,6 +47,6 @@
   justify-content: center;
 
   h2 {
-    @include setFont('Russo One', 36px, 400, white)
+    @include setFont('Russo One', 36px, 400, white);
   }
 }

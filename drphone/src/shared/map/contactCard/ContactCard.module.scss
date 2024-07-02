@@ -1,0 +1,14 @@
+@use "src/app/styles.scss" as *;
+
+.card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

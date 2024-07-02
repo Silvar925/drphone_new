@@ -7,7 +7,16 @@
   height: 163px;
   top: 3px;
   left: 1690px;
-  gap: 0px;
-  border-radius: 0px 0px 89px 0px;
+  gap: 0;
+  border-radius: 0 0 0 89px;
   border: none;
+  cursor: pointer;
+
+  img {
+    transition: filter 0.3s ease; /* Добавлено для плавного перехода */
+  }
+
+  &:hover img {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  }
 }

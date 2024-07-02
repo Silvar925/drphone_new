@@ -46,6 +46,26 @@
 
 @media (min-width: 320px) and (max-width: 435px) {
   .footer {
-    display: none;
+    padding: 15px 0;
+    gap: 38px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left {
+    align-items: center;
+    gap: 24px;
+
+    ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .right {
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
   }
 }

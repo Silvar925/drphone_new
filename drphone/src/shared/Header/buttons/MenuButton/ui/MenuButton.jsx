@@ -1,11 +1,12 @@
 import styles from "./MenuButton.module.scss"
+import {Link} from "react-router-dom";
 
 import menuIcon from "./asset/menu.svg"
 
-export const MenuButton = () => {
+export const MenuButton = ({url}) => {
     return (
-        <button className={styles.button}>
+        <Link to={url} className={styles.button}>
             <img src={menuIcon} alt="menu"/>
-        </button>
+        </Link>
     )
 }

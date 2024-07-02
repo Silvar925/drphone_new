@@ -3,7 +3,35 @@
 .contactBox {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 28px;
 
-  @include setFont('Montserrat', 16px, 500, white)
+  @include setFont('Montserrat', 16px, 500, white);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    li {
+      height: 66px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 80%;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid rgb(179, 179, 179);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button {
+  border-radius: 0;
 }

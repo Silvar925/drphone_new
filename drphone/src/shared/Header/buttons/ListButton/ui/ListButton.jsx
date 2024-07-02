@@ -2,9 +2,9 @@ import styles from './ListButton.module.scss'
 
 import listIcon from "./asset/list.svg"
 
-export const ListButton = () => {
+export const ListButton = ({onClick}) => {
     return (
-        <button className={styles.button}>
+        <button className={styles.button} onClick={onClick}>
             <img src={listIcon} alt="listIcon"/>
         </button>
     )

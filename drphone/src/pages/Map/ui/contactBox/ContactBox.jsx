@@ -1,8 +1,8 @@
 import styles from "./ContactBox.module.scss"
 import {Button} from "../../../../shared/Button/index";
 
-import phone from "../assets/pinkPhone.png"
-import gps from "../assets/gpsPink.png"
+import phone from "../../../../shared/asset/pinkIcon/pinkPhone.png"
+import gps from "../../../../shared/asset/pinkIcon/gpsPink.png"
 
 export const ContactBox = () => {
     return (
