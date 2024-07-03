@@ -1,0 +1,30 @@
+@use "src/app/styles.scss" as *;
+
+.productContainer {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+
+  header {
+    h2 {
+      @include setFont('Russo One', 32px, 400, white);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  gap: 32px;
+}
+
+.productInfo {
+  display: flex;
+  gap: 32px;
+}
+
+.filterBox {
+  width: 330px;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+}

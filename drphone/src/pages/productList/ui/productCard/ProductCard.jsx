@@ -12,8 +12,8 @@ export const ProductCard = ({img, alt, title, oldPrice, price, url}) => {
             <div className={styles.info}>
                 <h2>{title}</h2>
 
-                <div>
-                    {oldPrice === undefined && <p className={styles.oldPrice}>{oldPrice}</p>}
+                <div className={styles.priceBox}>
+                    {oldPrice === null && <p className={styles.oldPrice}>{oldPrice}</p>}
                     <p className={styles.price}>{price}</p>
                 </div>
                 <Button onClick={() => navigate(url)}>Купить</Button>

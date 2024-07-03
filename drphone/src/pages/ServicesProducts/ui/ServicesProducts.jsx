@@ -11,7 +11,7 @@ import appleMacPro from "./assets/serviceProductCardImages/appleMacPro.png"
 import covers from "./assets/serviceProductCardImages/covers.png"
 import React from "react";
 
-export const ServicesProducts = () => {
+export const  ServicesProducts = () => {
     const {productList} = useParams();
 
     console.log(productList);
