@@ -22,9 +22,37 @@
   gap: 32px;
 }
 
+.imageBox {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
 .filterBox {
-  width: 330px;
+  width: 426px;
   display: flex;
   gap: 32px;
   flex-direction: column;
+}
+
+.title {
+  @include setFont('Montserrat', 19px, 400, black);
+}
+.text {
+  @include setFont('Montserrat', 19px, 400, lightgray);
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sliderBox {
+  width: 500px;
+  height: 110px;
+
+  img {
+    height: 110px;
+  }
 }

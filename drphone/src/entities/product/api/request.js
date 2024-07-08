@@ -18,8 +18,6 @@ export const getProductList = (url, setData, productList) => {
 export const getProduct = async (url, setData, productId) => {
     try {
         const fullUrl = `${BASE_URL}/${dictionary[url]}?unique_id=${productId}`;
-        console.log('GET:', fullUrl);
-
         const response = await axios.get(fullUrl);
         setData(response.data[0]);
     } catch (error) {

@@ -1,7 +1,38 @@
+@use "src/app/styles.scss" as *;
+
 .fieldset {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px 10px 15px;
+  border-radius: 10px;
+
+  legend {
+    @include setFont('Montserrat', 20px, 500, white);
+  }
+
+
 }
 
 .colorList {
   display: flex;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+
+    &:hover {
+      border: 2px solid var(--button-color);
+    }
+  }
+}
+
+.btnColor {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
 }

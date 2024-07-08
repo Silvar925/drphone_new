@@ -1,0 +1,22 @@
+@use "src/app/styles.scss" as *;
+
+.priceContainer {
+  width: 313px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.priceBox {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.oldPrice {
+  @include setFont('Montserrat', 16px, 500, black);
+}
+
+.price {
+  @include setFont('Montserrat', 24px, 600, black);
+}

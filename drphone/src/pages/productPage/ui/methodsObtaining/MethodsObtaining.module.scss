@@ -1,0 +1,10 @@
+@use "src/app/styles.scss" as *;
+
+.obtainingContainer {
+  padding: 30px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
