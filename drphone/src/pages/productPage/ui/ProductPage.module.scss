@@ -26,6 +26,21 @@
   display: flex;
   gap: 40px;
   flex-direction: column;
+
+  .imgBox {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height: 600px;
+    max-width: 600px;
+    border-radius: 10px;
+  }
+
+  img {
+    height: 600px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
 }
 
 .filterBox {
@@ -48,11 +63,34 @@
   gap: 32px;
 }
 
-.sliderBox {
-  width: 500px;
+.sliderContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 600px;
   height: 110px;
 
   img {
     height: 110px;
   }
+}
+
+.slide {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 3px;
+  border-radius: 10px;
+  border: 2px solid white;
+
+  &:hover {
+    border: 2px solid var(--button-color);
+  }
+}
+
+.loading {
+  color: white;
+  @include setFont('Montserrat', 52px, 600, white)
 }

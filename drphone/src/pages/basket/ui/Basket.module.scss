@@ -1,0 +1,32 @@
+@use "src/app/styles.scss" as *;
+
+.basketContainer {
+    display: flex;
+    gap: 80px;
+    width: 1300px;
+    align-items: center;
+}
+
+.basketBox {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border: 10px;
+
+    header {
+        @include setFont('Montserrat', 20px, 400, black);
+    }
+
+    ul {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        padding: 28px;
+        background-color: white;
+        border-radius: 20px;
+    }
+}

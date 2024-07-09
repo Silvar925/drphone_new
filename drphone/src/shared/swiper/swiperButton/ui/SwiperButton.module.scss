@@ -1,0 +1,21 @@
+.swiperButton {
+  width: 120px;
+  height: 53px;
+
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    90deg,
+    rgba(33, 188, 255, 0),
+    rgba(33, 188, 255, 0.5) 100%
+  );
+
+  img {
+    height: 18px;
+    width: 18px;
+  }
+}
