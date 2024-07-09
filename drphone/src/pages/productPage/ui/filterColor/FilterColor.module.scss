@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 8px 10px 10px 15px;
   border-radius: 10px;
+  border: none;
 
   legend {
     @include setFont('Montserrat', 20px, 500, white);
@@ -25,15 +26,19 @@
     width: 43px;
     border-radius: 50%;
 
+    .btnColor {
+      cursor: pointer;
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+
     &:hover {
-      border: 2px solid var(--button-color);
+      border-color: var(--button-color); /* Изменяем цвет границы при наведении */
     }
   }
 }
 
-.btnColor {
-  cursor: pointer;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
+.active {
+  border: 2px solid var(--button-color);
 }

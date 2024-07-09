@@ -1,0 +1,18 @@
+@use "src/app/styles.scss" as *;
+
+.card {
+    width: 360px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    header {
+        h2 {
+            @include setFont('Montserrat', 35px, 700, white)
+        }
+    }
+
+    p {
+        @include setFont('Montserrat', 14px, 400, white)
+    }
+}

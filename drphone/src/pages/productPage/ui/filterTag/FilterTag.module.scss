@@ -1,10 +1,11 @@
-@use "src/app/styles.scss" as *;
+@use 'src/app/styles.scss' as *;
 
 .fieldset {
   display: flex;
   flex-direction: column;
   padding: 15px 15px 25px 15px;
   border-radius: 10px;
+  border: none;
 
   legend {
     @include setFont('Montserrat', 20px, 500, white);
@@ -13,22 +14,30 @@
   ul {
     display: flex;
     gap: 16px;
-    list-style-type: none; // добавьте это, чтобы убрать маркеры списка
 
     li {
 
-      a {
+      button {
+        cursor: pointer;
         padding: 10px 15px;
         background-color: white;
-        border-radius: 10px;
-        border: 2px solid white;
         @include setFont('Montserrat', 16px, 500, black);
-        text-decoration: none; // добавьте это, чтобы убрать подчеркивание
+        text-decoration: none;
+    
+        border: 2px solid transparent; /* Используем прозрачную границу по умолчанию */
+        outline: none;
+        border-radius: 10px;
+    
+
         &:hover {
           border: 2px solid var(--button-color);
         }
+
       }
     }
   }
 }
 
+.active {
+  border: 2px solid var(--button-color) !important;
+}

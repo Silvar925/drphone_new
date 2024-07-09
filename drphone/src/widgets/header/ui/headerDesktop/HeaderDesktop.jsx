@@ -37,8 +37,8 @@ export const HeaderDesktop = () => {
                 <li><Link to="/map">Карта</Link></li>
                 <li><Link to="/service-products/accessories">Аксессуары</Link></li>
                 <li><Link to="/service-products/used-devices">БУ Устройства</Link></li>
-                <li><Link to="/service-products/repair">Ремонт</Link></li>
-                <li><Link to="/service-products/360-protection">Защита устройства 360</Link></li>
+                <li><Link to="/repair">Ремонт</Link></li>
+                <li><Link to="/device-protection">Защита устройства 360</Link></li>
                 <li><Link to="/service-products/cases">Чехлы</Link></li>
                 <li><Link to="/service-products/imac">I MAC</Link></li>
             </ul>

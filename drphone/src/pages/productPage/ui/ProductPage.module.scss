@@ -1,4 +1,4 @@
-@use "src/app/styles.scss" as *;
+@use 'src/app/styles.scss' as *;
 
 .productContainer {
   display: flex;
@@ -92,5 +92,11 @@
 
 .loading {
   color: white;
-  @include setFont('Montserrat', 52px, 600, white)
+  @include setFont('Montserrat', 52px, 600, white);
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+  .content {
+    flex-direction: column;
+  }
 }

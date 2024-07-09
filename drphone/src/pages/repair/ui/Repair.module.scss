@@ -1,0 +1,52 @@
+@use 'src/app/styles.scss' as *;
+
+.repairContainer {
+  width: 1300px;
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videoBox {
+  display: flex;
+  gap: 45px;
+  flex-direction: column;
+  align-items: center;
+
+  video {
+    border-radius: 20px;
+  }
+
+  header {
+    h2 {
+      @include setFont('Russo One', 32px, 400, white);
+    }
+  }
+}
+
+.warningBox {
+  width: 1015px;
+  border: 1px solid var(--button-color);
+  border-radius: 20px;
+  padding: 20px 50px;
+  text-align: center;
+
+  p {
+    @include setFont('Montserrat', 16px, 500, white);
+  }
+
+  span {
+    color: var(--button-color);
+  }
+}
+
+.listBox {
+    display: flex;
+    gap: 77px;
+
+    img {
+
+        height: 570px;
+    }
+}
