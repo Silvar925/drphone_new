@@ -20,7 +20,6 @@ export const getProduct = async (url, setData, productId) => {
     setData(response.data[0]);
   } catch (error) {
     if (error.response) {
-      // Сервер вернул ответ с ошибочным статусом
       console.error(
         'Ошибка при получении данных пользователя:',
         error.response.status,
@@ -32,23 +31,19 @@ export const getProduct = async (url, setData, productId) => {
         console.error('Ошибка на сервере:', error.response.status);
       }
     } else if (error.request) {
-      // Запрос был сделан, но ответа не получено
       console.error('Запрос был сделан, но ответа не получено', error.request);
     } else {
-      // Что-то пошло не так при настройке запроса
       console.error('Ошибка при настройке запроса', error.message);
     }
   }
 };
 
 export const getAllMemoryProduct = async (url) => {
-  console.log(`${BASE_URL}/${url}`);
-  axios
-    .get(`${BASE_URL}/${url}`)
-    .then((response) => {
-      console.log('res: ', response.data);
-    })
-    .catch((error) => {
-      console.error('Ошибка при получении данных пользователя:', error);
-    });
+  try {
+    const response = await axios.get(`${BASE_URL}/${url}`);
+    return response.data; // Возвращаем данные из ответа
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+    throw error; // Пробрасываем ошибку дальше, если нужно обработать в вызывающем коде
+  }
 };
