@@ -20,3 +20,9 @@
 .price {
   @include setFont('Montserrat', 24px, 600, black);
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+  .priceContainer {
+    width: 100%;
+  }
+}

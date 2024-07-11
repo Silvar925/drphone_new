@@ -10,12 +10,12 @@ export const MethodsObtaining = () => {
         <WhiteBox className={styles.obtainingContainer}>
             <ul>
                 <li>
-                    <MethodsObtainingCard img={truck} alt="truck"/>
+                    <MethodsObtainingCard img={truck} alt="truck" title = "Доставка по России" subtitle="Сегодня бесплатно"/>
                 </li>
                 <hr/>
 
                 <li>
-                    <MethodsObtainingCard img={bag} alt="bag"/>
+                    <MethodsObtainingCard img={bag} alt="bag" title = "Самовывоз" subtitle="Сегодня бесплатно" />
                 </li>
             </ul>
         </WhiteBox>
