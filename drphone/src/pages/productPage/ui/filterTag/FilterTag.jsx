@@ -10,8 +10,9 @@ export const FilterTag = ({ title, tagList, type, active }) => {
   const { productPage } = useParams();
 
   const clickTagHandler = async (memory) => {
+    console.log('memory: ', memory)
     let id;
-    title === "Память" ? id = 4 : id = [5,6,7]
+    title === "Память" ? id = 2 : id = [3,4,5]
     let newUrl = await updateProductParams(productPage, memory, id);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };

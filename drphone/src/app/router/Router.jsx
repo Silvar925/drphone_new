@@ -7,12 +7,15 @@ import { ProductPage } from '../../pages/productPage/index.js';
 import { Basket } from '../../pages/basket/index.js';
 import { DeviceProtection } from '../../pages/deviceProtection/index.js';
 import { Repair } from '../../pages/repair/index.js';
+import { Home } from '../../pages/home/index.js';
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<BaseLayout />}>
+          <Route path="/" element={<Home />} />
           <Route path="service-products" element={<ServicesProducts />}>
             <Route path=":productList" element={<ProductList />}>
               <Route path=":productPage" element={<ProductPage />} />

@@ -1,4 +1,4 @@
-@use "src/app/styles.scss" as *;
+@use 'src/app/styles.scss' as *;
 
 .mainHeader {
   display: flex;
@@ -46,7 +46,12 @@
   align-items: center;
   justify-content: center;
 
+  img {
+    width: 268px;
+    height: 68px;
+  }
+
   h2 {
-    @include setFont('Russo One', 36px, 400, white);
+    @include setFont('Russo One', 34px, 100, white);
   }
 }

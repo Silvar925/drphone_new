@@ -40,3 +40,10 @@ export const priceLsit = [
         price: 2000
     }
 ]
+
+export const pages = {
+    '/service-products': 'Услуги и товары',
+    'phones': 'Смартфоны',
+    '/map': 'Карта',
+    '/basket': 'Корзина',
+}

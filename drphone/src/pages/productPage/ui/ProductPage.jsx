@@ -20,7 +20,7 @@ export const ProductPage = () => {
   const location = useLocation().pathname;
 
   let mobile = useIsMobile();
-  console.log('mobile: ', mobile);
+  // console.log('mobile: ', mobile);
 
   useEffect(() => {
     if (productList && productPage) {
@@ -33,7 +33,7 @@ export const ProductPage = () => {
   return product ? (
     <section className={styles.productContainer}>
       <header>
-        <h2>{product.phone.name}</h2>
+        <h2>{product.name}</h2>
       </header>
 
       <div className={styles.content}>
@@ -76,6 +76,7 @@ export const ProductPage = () => {
             <PriceBox
               price={product.price}
               oldPrice={product.discountedPrice}
+              phoneInfo = {product}
             />
           </li>
           <li>

@@ -28,5 +28,10 @@
         padding: 28px;
         background-color: white;
         border-radius: 20px;
+
+        li {
+            padding-bottom: 28px;
+            border-bottom: 1px solid black;
+        }
     }
 }

@@ -5,20 +5,21 @@ import { huesas } from './temp';
 
 
 export const updateProductParams = async (idProduct, color, id) => {
+  // console.log('asd: ', idProduct)
   let tempUrl = idProduct.split('-');
-  console.log('tempUrl: ', tempUrl)
+  // console.log('tempUrl: ', tempUrl)
 
   tempUrl[id] = slugify(color);
   let updateUrl = tempUrl.join('-');
 
-  console.log('id: ', typeof(id))
+  // console.log('id: ', typeof(id))
 
   let result;
   typeof(id) === 'number' ? result = await search(updateUrl, id) : (
     result = await huesas(updateUrl, id, color)
   )
 
-  console.log('tempFunction: ', result);
+  // console.log('tempFunction: ', result);
 
   return result;
 };
@@ -51,18 +52,19 @@ const search = async (id, support) => {
     return id;
   } else {
     let ret = getNearestId(productList, id, support);
-    console.log('ret: ', ret);
+    // console.log('ret: ', ret);
     return ret;
   }
 };
 
 export const getAttributesProduct = (url) => {
   const partUrls = url.split('-');
+  // console.assert('partUrls: ', partUrls)
 
   return {
-    color: partUrls[4],
-    memory: partUrls[5],
-    sim: `${partUrls[6]} + ${partUrls[8]}`,
+    color: partUrls[2],
+    memory: partUrls[3],
+    sim: `${partUrls[4]} + ${partUrls[6]}`,
   };
 };
 
@@ -89,8 +91,9 @@ const getNearestId = (productList, id, support) => {
 
   for (let key in productList) {
     temp = productList[key].split('-');
+    // console.log('123: ', temp[support], tempColor)
     if (temp[support] === tempColor) {
-      console.log('getNearestID: ', temp.join('-'));
+      // console.log('getNearestID: ', temp.join('-'));
       return temp.join('-');
     }
   }

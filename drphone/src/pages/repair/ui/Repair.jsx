@@ -3,15 +3,18 @@ import { PriceCard } from './priceCard/PriceCard';
 import { priceLsit } from '../../../shared/untiles/helpers';
 
 import repair from './asset/repair.png';
+import { useIsMobile } from '../../../shared/hooks/useIsMobile';
 
 export const Repair = () => {
+  const mobile = useIsMobile();
+
   return (
     <div className={styles.repairContainer}>
       <section className={styles.videoBox}>
         <header>
           <h2>Ремонт</h2>
         </header>
-        <video width="100%" height="570px" controls>
+        <video width="100%" height={mobile ? 'auto' : '570px'} controls>
           <source src="phoneRepairsVideo.mp4" />
         </video>
       </section>
@@ -29,7 +32,7 @@ export const Repair = () => {
         <ul>
             {
                 priceLsit.map((item, index) => {
-                    <li key={index}><PriceCard name={item.name} price={item.price} /></li>
+                  return <li key={index}><PriceCard text={item.name} price={item.price} /></li>
                 })
             }
         </ul>

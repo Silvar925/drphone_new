@@ -43,10 +43,45 @@
 
 .listBox {
     display: flex;
-    gap: 77px;
+    gap: 50px;
 
     img {
 
         height: 570px;
     }
+
+    ul {
+      width: 500px;
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 435px) {
+  .repairContainer {
+    gap: 30px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .videoBox {
+    gap: 20px;
+    width: auto;
+  }
+
+  .listBox {
+    width: 100%;
+    flex-direction: column;
+
+    ul {
+      width: 100%;
+    }
+  }
+
+  .warningBox {
+    width: 100%;
+  }
+
 }

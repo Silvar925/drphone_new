@@ -1,3 +1,5 @@
+@use "src/app/styles.scss" as *;
+
 .basketCard {
     display: flex;
     width: 100%;
@@ -20,4 +22,8 @@
 .priceBox {
     display: flex;
     gap: 20px;
+
+    h2 {
+        @include setFont('Montserrat', 20px, 600, black);
+    }
 }

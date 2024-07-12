@@ -12,7 +12,7 @@ export const FilterColor = ({ colorList, active }) => {
   const navigate = useNavigate();
 
   const colorClickHandler = async (color) => {
-    let newUrl = await updateProductParams(productPage, color, 3);
+    let newUrl = await updateProductParams(productPage, color, 1);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
 

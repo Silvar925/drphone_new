@@ -1,7 +1,7 @@
 import styles from "./BasketCard.module.scss"
 
 
-const BasketCard = ({ img, alt, name }) => {
+const BasketCard = ({ img, alt, name, price, onClick }) => {
     return (
         <article className={styles.basketCard}>
             <div className={styles.infoBox}>
@@ -15,7 +15,7 @@ const BasketCard = ({ img, alt, name }) => {
             </div>
 
             <div className={styles.priceBox}>
-                <h2>90000</h2>
+                <h2>{price}</h2>
             </div>
         </article>
     )
