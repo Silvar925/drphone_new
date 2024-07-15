@@ -3,6 +3,7 @@ import { BASE_URL } from '../../../app/setting.js';
 import { dictionary } from '../../../shared/untiles/helpers.js';
 
 export const getProductList = (url, setData) => {
+  console.log('url: ', url)
   axios
     .get(`${BASE_URL}/${dictionary[url]}`)
     .then((response) => {

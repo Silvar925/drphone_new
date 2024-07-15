@@ -10,6 +10,8 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
     const { productList, productPage } = useParams()
 
+    console.log('productList: ', productList)
+
     useEffect(() => {
         getProductList(productList, setProducts, productList)
     }, [productList])

@@ -9,7 +9,6 @@ import repair from "./assets/serviceProductCardImages/repair.png"
 import deviceProtect from "./assets/serviceProductCardImages/deviceProtection.png"
 import appleMacPro from "./assets/serviceProductCardImages/appleMacPro.png"
 import covers from "./assets/serviceProductCardImages/covers.png"
-import React from "react";
 
 export const ServicesProducts = () => {
     const {productList} = useParams();
