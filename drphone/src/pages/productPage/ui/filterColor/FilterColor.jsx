@@ -1,10 +1,6 @@
 import styles from './FilterColor.module.scss';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
-import {
-  updateProductParams,
-  extractBaseUrl,
-  slugify,
-} from '../../model/helpers';
+import { updateProductParams, extractBaseUrl, slugify } from '../../model/helpers';
 
 export const FilterColor = ({ colorList, active }) => {
   const { productPage } = useParams();
@@ -16,14 +12,14 @@ export const FilterColor = ({ colorList, active }) => {
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
 
+
   return (
     <fieldset className={styles.fieldset}>
       <legend>Цвет</legend>
       <ul className={styles.colorList}>
         {colorList.map((item, index) => {
           return (
-            <li
-              key={`${index}|${item.codeColor}`}
+            <li key={`${index}|${item.codeColor}`}
               className={slugify(item.name) === active ? styles.active : ''}
             >
               <div

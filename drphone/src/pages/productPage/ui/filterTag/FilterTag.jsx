@@ -1,23 +1,22 @@
 import styles from './FilterTag.module.scss';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { extractBaseUrl, updateProductParams } from '../../model/helpers';
-import { getAllMemoryProduct } from '../../../../entities/product/api/request';
-
 
 export const FilterTag = ({ title, tagList, type, active }) => {
-  const location = useLocation().pathname
-  const navigate = useNavigate()
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
   const { productPage } = useParams();
 
   const clickTagHandler = async (memory) => {
-    console.log('memory: ', memory)
+    console.log('memory: ', memory);
     let id;
-    title === "Память" ? id = 2 : id = [3,4,5]
+    title === 'Память' ? id = 2 : id = [3, 4, 5];
     let newUrl = await updateProductParams(productPage, memory, id);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
 
   return (
+    tagList !== undefined &&
     <fieldset className={styles.fieldset}>
       <legend>{title}</legend>
       <ul>

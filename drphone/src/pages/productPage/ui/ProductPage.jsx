@@ -6,9 +6,8 @@ import { FilterTag } from './filterTag/FilterTag.jsx';
 import { PriceBox } from './priceBox/PriceBox.jsx';
 import { MethodsObtaining } from './methodsObtaining/MethodsObtaining.jsx';
 import { useEffect, useState } from 'react';
-
-import { getAttributesProduct } from '../model/helpers.js';
 import { useLocation } from 'react-router-dom';
+import { getAttributesProduct } from '../model/helpers.js';
 import { useIsMobile } from '../../../shared/hooks/useIsMobile.jsx';
 import DesktopSlider from './slider/desktopSlider/DesktopSlider.jsx';
 import MobileSlider from './slider/mobileSlider/MobileSlider.jsx';
@@ -20,7 +19,6 @@ export const ProductPage = () => {
   const location = useLocation().pathname;
 
   let mobile = useIsMobile();
-  // console.log('mobile: ', mobile);
 
   useEffect(() => {
     if (productList && productPage) {
@@ -30,7 +28,7 @@ export const ProductPage = () => {
 
   const attributesProduct = getAttributesProduct(location);
 
-  console.log('product: ', product)
+  product && console.log(product.device.allColors)
 
   return product ? (
     <section className={styles.productContainer}>
@@ -45,7 +43,7 @@ export const ProductPage = () => {
               <div className={styles.imgBox}>
                 <img
                   src={image === null ? product.images[0].image : image}
-                  alt={product.phone.name}
+                  alt={product.device.name}
                 />
               </div>
               <DesktopSlider product={product} setImage={setImage} />
@@ -56,17 +54,17 @@ export const ProductPage = () => {
 
           <div className={styles.filterBox}>
             <FilterColor
-              colorList={product.phone.allColors}
+              colorList={product.device.allColors}
               active={attributesProduct.color}
             />
             <FilterTag
-              tagList={product.phone.allMemory}
+              tagList={product.device.allMemory}
               type="size"
               title="Память"
               active={attributesProduct.memory}
             />
             <FilterTag
-              tagList={product.phone.allSim}
+              tagList={product.device.allSim}
               type="type"
               title="SIM"
               active={attributesProduct.sim}

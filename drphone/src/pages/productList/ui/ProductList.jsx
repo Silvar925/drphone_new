@@ -10,12 +10,9 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
     const { productList, productPage } = useParams()
 
-    console.log('productList: ', productList)
-
     useEffect(() => {
         getProductList(productList, setProducts, productList)
     }, [productList])
-
 
     return productPage === undefined ? (
         <div className={styles.container}>
@@ -25,7 +22,7 @@ export const ProductList = () => {
                         <ProductCard key={index}
                             img={item.images[0].image}
                             alt="iPhone 15 Pro"
-                            title={item.phone.name}
+                            title={item.device.name}
                             url={item.unique_id}
                             price={item.price}
                             oldPrice={item.discountedPrice}

@@ -3,7 +3,7 @@ import { BASE_URL } from '../../../app/setting.js';
 import { dictionary } from '../../../shared/untiles/helpers.js';
 
 export const getProductList = (url, setData) => {
-  console.log('url: ', url)
+  console.log(`${BASE_URL}/${dictionary[url]}`);
   axios
     .get(`${BASE_URL}/${dictionary[url]}`)
     .then((response) => {
@@ -24,7 +24,7 @@ export const getProduct = async (url, setData, productId) => {
       console.error(
         'Ошибка при получении данных товаров:',
         error.response.status,
-        error.response.data
+        error.response.data,
       );
       if (error.response.status === 404) {
         console.error('Ресурс не найден (404)');
@@ -48,3 +48,5 @@ export const getAllMemoryProduct = async (url) => {
     throw error; // Пробрасываем ошибку дальше, если нужно обработать в вызывающем коде
   }
 };
+
+

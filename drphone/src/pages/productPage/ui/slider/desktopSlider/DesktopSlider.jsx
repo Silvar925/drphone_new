@@ -1,6 +1,6 @@
 import 'swiper/css';
-import styles from './DesktopSlider.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import styles from './DesktopSlider.module.scss';
 import { SwiperButton } from '../../../../../shared/swiper/swiperButton/index.js';
 import { useState } from 'react';
 

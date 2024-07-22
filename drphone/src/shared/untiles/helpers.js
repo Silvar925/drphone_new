@@ -1,5 +1,6 @@
 export const dictionary = {
-    'phones': 'api/Core/phones-options/'
+    'phones': 'api/Core/phones-options/',
+    'accessories': 'api/Core/accessories-options/'
 }
 
 export const priceLsit = [
@@ -44,6 +45,8 @@ export const priceLsit = [
 export const pages = {
     '/service-products': 'Услуги и товары',
     'phones': 'Смартфоны',
+    'accessories': 'Аксессуары',
     '/map': 'Карта',
     '/basket': 'Корзина',
+    'iMac': "iMac"
 }

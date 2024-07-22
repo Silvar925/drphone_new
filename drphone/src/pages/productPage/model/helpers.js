@@ -25,6 +25,7 @@ export const updateProductParams = async (idProduct, color, id) => {
 };
 
 export const slugify = (text) => {
+  console.log('text: ', text)
   return text
     .split('')
     .map((char) => cyrillicMap[char] || char)
