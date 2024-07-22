@@ -22,7 +22,7 @@ export const getProduct = async (url, setData, productId) => {
   } catch (error) {
     if (error.response) {
       console.error(
-        'Ошибка при получении данных пользователя:',
+        'Ошибка при получении данных товаров:',
         error.response.status,
         error.response.data
       );

@@ -2,7 +2,6 @@ import 'swiper/css';
 import styles from './HomeSlider.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperButton } from '../../../../shared/swiper/swiperButton';
-import { ProductCard } from '../../../productList/ui/productCard/ProductCard';
 import { ServiceProductCard } from '../../../../features/serviceProductCard/index.js';
 
 import phones from '../../../ServicesProducts/ui/assets/serviceProductCardImages/phone.png';
@@ -13,21 +12,22 @@ import deviceProtect from '../../../ServicesProducts/ui/assets/serviceProductCar
 import appleMacPro from '../../../ServicesProducts/ui/assets/serviceProductCardImages/appleMacPro.png';
 import covers from '../../../ServicesProducts/ui/assets/serviceProductCardImages/covers.png';
 
-const HomeSlider = () => {
+const HomeSlider = ({ className }) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <SwiperButton orientation="left" />
-      <Swiper slidesPerView={3} spaceBetween={68}>
-        <SwiperSlide>
+
+      <Swiper slidesPerView={3} spaceBetween={10}>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={phones}
             alt="iphone-pro-max"
             title="Телефоны"
-            url="phones"
+            url="service-products/phones"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={usedPhones}
@@ -35,7 +35,7 @@ const HomeSlider = () => {
             title="БУ устройства"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={accessories}
@@ -43,7 +43,7 @@ const HomeSlider = () => {
             title="Аксессуары"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={deviceProtect}
@@ -51,7 +51,7 @@ const HomeSlider = () => {
             title="Защита устройств 360"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={appleMacPro}
@@ -59,7 +59,7 @@ const HomeSlider = () => {
             title="I MAC"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={covers}
@@ -67,7 +67,7 @@ const HomeSlider = () => {
             title="Чехлы"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={repair}
@@ -82,3 +82,4 @@ const HomeSlider = () => {
 };
 
 export default HomeSlider;
+

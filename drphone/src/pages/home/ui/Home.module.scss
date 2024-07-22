@@ -5,10 +5,11 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .infoBox {
-//   border: 1px solid white;
+  //   border: 1px solid white;
   width: 20%;
   display: flex;
   height: 100%;
@@ -21,8 +22,16 @@
     gap: 47px;
     flex-direction: column;
 
-    li {
+    li a {
+      display: flex;
+      gap: 10px;
+      align-items: center;
       @include setFont('Montserrat', 16px, 600, white);
+
+      &:hover {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+        cursor: pointer;
+      }
     }
   }
 }
@@ -32,8 +41,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-//   width: 60%;
-//   border: 1px solid white;
+  width: 60%;
 }
 
 .socialNetworkBox {
@@ -43,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-//   border: 1px solid white;
+  //   border: 1px solid white;
 }
 
 .icon {
@@ -53,135 +61,159 @@
 }
 
 .animationContainer {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+  height: 100%;
+  //width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .animationBox {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .circles {
-    width: 940px;
-    height: 239px;
+  width: 940px;
+  height: 239px;
 }
 
 .bounce {
-    width: 357px;
-    height: 435px;
-    position: relative;
-    animation: bounce 3s infinite;
+  width: 357px;
+  height: 435px;
+  position: relative;
+  animation: bounce 3s infinite;
 }
 
 @keyframes bounce {
-    0%,
-    100% {
-        top: 0;
-    }
-    50% {
-        top: 100px;
-    }
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 100px;
+  }
 }
 
-.animationBox button {
-    position: absolute;
-    bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.animationBox a {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  bottom: 10px;
+  //background-color: rgba(255, 255, 255, 0.1);
+  //border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  width: 355px;
+  height: 79px;
+
+  border: none;
+  border-radius: 60px;
+  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.15);
+
+  @include setFont('Montserrat', 16px, 500, white);
+  text-transform: uppercase;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 .animationBox button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .glowBox {
-    position: absolute;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    top: 0;
+  //position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 0;
 }
 
 .glow {
-    position: absolute;
-    width: 2px;
-    height: 200px;
-    background: linear-gradient(
-        to top,
-        rgba(255, 0, 0, 0),
-        rgba(255, 0, 0, 0.8),
-        rgba(255, 0, 0, 0)
-    );
+  position: absolute;
+  width: 2px;
+  height: 200px;
 }
 
 .leftGlow {
-    left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(0, 51, 204, 0), #1a8cff); /* Градиент сверху вниз от прозрачного до ярко-голубого */
 }
 
 .rightGlow {
-    right: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #ff4b5c, rgba(255, 75, 92, 0)); /* Градиент сверху вниз от ярко-розового до прозрачного */
 }
 
 @keyframes moveDown {
-    0% {
-        top: -200px;
-        opacity: 0;
-    }
-    50% {
-        top: calc(100% - 200px);
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
+  0% {
+    top: -200px;
+    opacity: 0;
+  }
+  50% {
+    top: calc(100% - 200px);
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 @keyframes moveUp {
-    0% {
-        top: 100%;
-        opacity: 0;
-    }
-    50% {
-        top: 0;
-        opacity: 1;
-    }
-    100% {
-        top: -200px;
-        opacity: 0;
-    }
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  50% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -200px;
+    opacity: 0;
+  }
 }
 
 .glow:nth-child(1) {
-    animation: moveDown 3s infinite;
-    animation-delay: 0s;
+  animation: moveDown 5s infinite;
+  animation-delay: 0s;
 }
 
 .glow:nth-child(2) {
-    animation: moveDown 3s infinite;
-    animation-delay: 1.5s;
+  animation: moveDown 5s infinite;
+  animation-delay: 1.5s;
 }
 
 .glow:nth-child(3) {
-    animation: moveUp 3s infinite;
-    animation-delay: 0s;
+  animation: moveUp 5s infinite;
+  animation-delay: 0s;
 }
 
 .glow:nth-child(4) {
-    animation: moveUp 3s infinite;
-    animation-delay: 1.5s;
+  animation: moveUp 5s infinite;
+  animation-delay: 1.5s;
+}
+
+.homeSlider {
+  //position: absolute;
+  width: 100%;
+  //height: 100%;
+  z-index: 999;
+  top: 200px;
+  //border: 1px solid white;
 }

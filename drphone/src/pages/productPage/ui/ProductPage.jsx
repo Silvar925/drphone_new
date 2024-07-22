@@ -30,6 +30,8 @@ export const ProductPage = () => {
 
   const attributesProduct = getAttributesProduct(location);
 
+  console.log('product: ', product)
+
   return product ? (
     <section className={styles.productContainer}>
       <header>
@@ -76,7 +78,7 @@ export const ProductPage = () => {
             <PriceBox
               price={product.price}
               oldPrice={product.discountedPrice}
-              phoneInfo = {product}
+              phoneInfo={product}
             />
           </li>
           <li>

@@ -1,8 +1,13 @@
 .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide {
-    border: 1px solid white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
