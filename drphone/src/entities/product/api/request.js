@@ -18,8 +18,6 @@ export const getProductList = (url, setData) => {
 
 export const getProduct = async (url, setData, productId) => {
   const basePath = url !== 'usedDevices' ? dictionary[url] : abbreviatedSlag[productId.split('-')[0]];
-
-
   // console.log('fullURL: ', `${BASE_URL}/${basePath}?unique_id=${productId}`)
 
   try {

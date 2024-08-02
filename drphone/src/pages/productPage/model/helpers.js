@@ -7,7 +7,7 @@ import { dictionary } from '../../../shared/untiles/helpers';
 
 export const updateProductParams = async (idProduct, color, id, device) => {
   // console.log('asd: ', idProduct)
-  // console.log('params: ', idProduct, color, id, device)
+  console.log('params: ', idProduct, color, id, device)
   let tempUrl = idProduct.split('-');
   // console.log('tempUrl: ', tempUrl)
 
@@ -15,17 +15,14 @@ export const updateProductParams = async (idProduct, color, id, device) => {
   let updateUrl = tempUrl.join('-');
 
   // console.log('update: ', updateUrl, tempUrl)
-
   let phone = idProduct.split('-')[1]
 
   let result;
   if (typeof (id) === 'number') {
-    result = await search(updateUrl, id, device, phone);
+    result = await search(updateUrl, id, device, phone, device);
   } else {
     result = await huesas(updateUrl, id, color, device);
   }
-
-  console.log('result: ', result)
 
   return result;
 };
@@ -121,3 +118,44 @@ const getNearestId = (productList, id, support, phone) => {
 
   }
 };
+
+
+export const availableColors = (phoneList, phone) => {
+  let colorSet = new Set();
+  if (phoneList.length > 0) {
+    for (let key in phoneList) {
+      if (phoneList[key].unique_id.split('-')[1] === phone) {
+        colorSet.add(JSON.stringify(phoneList[key].color));
+      }
+    }
+  }
+  let uniqueColors = Array.from(colorSet).map(item => JSON.parse(item));
+  return uniqueColors;
+}
+
+
+export const availableMemory = (phoneList, phone) => {
+  let memorySet = new Set();
+  if (phoneList.length > 0) {
+    for (let key in phoneList) {
+      if (phoneList[key].unique_id.split('-')[1] === phone) {
+        memorySet.add(JSON.stringify(phoneList[key].memory));
+      }
+    }
+  }
+  let uniqueMemory = Array.from(memorySet).map(item => JSON.parse(item));
+  return uniqueMemory;
+}
+
+export const availableSim = (phoneList, phone) => {
+  let simSet = new Set();
+  if (phoneList.length > 0) {
+    for (let key in phoneList) {
+      if (phoneList[key].unique_id.split('-')[1] === phone) {
+        simSet.add(JSON.stringify(phoneList[key].sim));
+      }
+    }
+  }
+  let uniqueSim = Array.from(simSet).map(item => JSON.parse(item));
+  return uniqueSim;
+}

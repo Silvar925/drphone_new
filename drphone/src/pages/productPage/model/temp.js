@@ -55,7 +55,7 @@ const getMemory = (item) => {
   // console.log('newItem: ', newItem);
 
   // console.log('1', newItem[4]);
-  // console.log('2', newItem[5]);
+  // console.log('2', newItem[5]); 
   // console.log('3', newItem[6]);
 
   memory.push(newItem[4]);

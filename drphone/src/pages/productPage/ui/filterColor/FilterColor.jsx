@@ -1,10 +1,15 @@
+import axios from 'axios';
 import styles from './FilterColor.module.scss';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
-import { updateProductParams, extractBaseUrl, slugify } from '../../model/helpers';
-import { useEffect, useState } from 'react';
+import { updateProductParams, extractBaseUrl, slugify, availableColors } from '../../model/helpers';
+import { useState, useEffect } from 'react';
 import { getProductList } from '../../../../entities/product/api/request';
+import { BASE_URL } from '../../../../app/setting';
+import { dictionary } from '../../../../shared/untiles/helpers';
+
 
 export const FilterColor = ({ colorList, active, device }) => {
+  const [phoneList, setPhoneList] = useState([]);
   const { productPage } = useParams();
   const location = useLocation().pathname;
   const navigate = useNavigate();
@@ -15,11 +20,28 @@ export const FilterColor = ({ colorList, active, device }) => {
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
 
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/${dictionary[type]}`)
+      .then((response) => {
+        setPhoneList(response.data);
+      })
+      .catch((error) => {
+        console.error('Ошибка при получении данных пользователя:', error);
+      });
+  }, []);
+
+  let colorListFilter;
+
+  if (phoneList) {
+    colorListFilter = availableColors(phoneList, productPage.split('-')[1]);
+  }
+
   return (
     <fieldset className={styles.fieldset}>
       <legend>Цвет</legend>
       <ul className={styles.colorList}>
-        {colorList.map((item, index) => {
+        {colorListFilter.map((item, index) => {
           return (
             <li key={`${index}|${item.codeColor}`} className={slugify(item.name) === active ? styles.active : ''}>
               <div
