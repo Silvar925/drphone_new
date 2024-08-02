@@ -2,30 +2,35 @@ import axios from 'axios';
 import { cyrillicMap } from '../../../shared/untiles/cyrillicMap';
 import { BASE_URL } from '../../../app/setting';
 import { huesas } from './temp';
+import { dictionary } from '../../../shared/untiles/helpers';
 
 
-export const updateProductParams = async (idProduct, color, id) => {
+export const updateProductParams = async (idProduct, color, id, device) => {
   // console.log('asd: ', idProduct)
+  // console.log('params: ', idProduct, color, id, device)
   let tempUrl = idProduct.split('-');
   // console.log('tempUrl: ', tempUrl)
 
   tempUrl[id] = slugify(color);
   let updateUrl = tempUrl.join('-');
 
-  // console.log('id: ', typeof(id))
+  // console.log('update: ', updateUrl, tempUrl)
+
+  let phone = idProduct.split('-')[1]
 
   let result;
-  typeof(id) === 'number' ? result = await search(updateUrl, id) : (
-    result = await huesas(updateUrl, id, color)
-  )
+  if (typeof (id) === 'number') {
+    result = await search(updateUrl, id, device, phone);
+  } else {
+    result = await huesas(updateUrl, id, color, device);
+  }
 
-  // console.log('tempFunction: ', result);
+  console.log('result: ', result)
 
   return result;
 };
 
 export const slugify = (text) => {
-  console.log('text: ', text)
   return text
     .split('')
     .map((char) => cyrillicMap[char] || char)
@@ -43,16 +48,21 @@ export const extractBaseUrl = (url) => {
   return baseUrl;
 };
 
-const search = async (id, support) => {
+const search = async (id, support, device, phone) => {
+  console.log('search: ', dictionary[device], device)
   const response = (
-    await axios.get(`${BASE_URL}/api/Core/phones-options-list/`)
+    await axios.get(`${BASE_URL}/${dictionary[device]}`)
   ).data;
+
   let productList = convertUniqueId(response);
 
+  // console.log('convert: ', productList)
+
   if (productList.includes(id)) {
+    // console.log('include: ', id)
     return id;
   } else {
-    let ret = getNearestId(productList, id, support);
+    let ret = getNearestId(productList, id, support, phone);
     // console.log('ret: ', ret);
     return ret;
   }
@@ -63,9 +73,9 @@ export const getAttributesProduct = (url) => {
   // console.assert('partUrls: ', partUrls)
 
   return {
-    color: partUrls[2],
-    memory: partUrls[3],
-    sim: `${partUrls[4]} + ${partUrls[6]}`,
+    color: partUrls[3],
+    memory: partUrls[4],
+    sim: `${partUrls[5]} + ${partUrls[7]}`,
   };
 };
 
@@ -86,16 +96,28 @@ export const convertUniqueId = (uniqueIdList) => {
   return arrat;
 };
 
-const getNearestId = (productList, id, support) => {
+const getNearestId = (productList, id, support, phone) => {
+  // console.log('parametr: ', productList, id, support)
+  console.log('phone: ', phone)
+
   let temp;
   let tempColor = id.split('-')[support];
 
   for (let key in productList) {
-    temp = productList[key].split('-');
-    // console.log('123: ', temp[support], tempColor)
-    if (temp[support] === tempColor) {
-      // console.log('getNearestID: ', temp.join('-'));
-      return temp.join('-');
+    console.log('productList[key]: ',)
+
+    if (productList[key].split('-')[1] === phone) {
+      temp = productList[key].split('-');
+
+      // console.log('temp: ', temp)
+
+      // console.log('two: ', temp[support], tempColor)
+
+      if (temp[support] === tempColor) {
+        // console.log('getNearestID: ', temp.join('-'));
+        return temp.join('-');
+      }
     }
+
   }
 };

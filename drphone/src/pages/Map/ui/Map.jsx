@@ -1,18 +1,18 @@
 import styles from './Map.module.scss';
-import {ContactBox} from "./contactBox/ContactBox.jsx";
-import {ContactBoxMobile} from "./contactBoxMobile/ContactBoxMobile.jsx";
-import {useIsMobile} from "../../../shared/hooks/useIsMobile.jsx";
+import { ContactBox } from "./contactBox/ContactBox.jsx";
+import { ContactBoxMobile } from "./contactBoxMobile/ContactBoxMobile.jsx";
+import { useIsMobile } from "../../../shared/hooks/useIsMobile.jsx";
 
 export const Map = () => {
     const isMobile = useIsMobile();
 
     return (
-        <section className={styles.container} style={isMobile ? {marginTop: '24px'} : {}}>
+        <section className={styles.container} style={isMobile ? { marginTop: '24px' } : {}}>
             {
-                isMobile === false ? <ContactBox/> : <ContactBoxMobile/>
+                isMobile === false ? <ContactBox /> : <ContactBoxMobile />
             }
 
-            <div style={{position: 'relative', overflow: 'hidden'}}>
+            <div style={{ position: 'relative', overflow: 'hidden' }}>
                 <a
                     href="https://yandex.ru/maps/1104/cherkessk/?utm_medium=mapframe&utm_source=maps"
                     style={{
@@ -41,10 +41,9 @@ export const Map = () => {
                     height="742"
                     frameBorder="1"
                     allowFullScreen
-                    style={{position: 'relative'}}
+                    style={{ position: 'relative' }}
                 ></iframe>
             </div>
-            )
         </section>
     )
 }

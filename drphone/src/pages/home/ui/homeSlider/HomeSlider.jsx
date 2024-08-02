@@ -11,13 +11,16 @@ import repair from '../../../ServicesProducts/ui/assets/serviceProductCardImages
 import deviceProtect from '../../../ServicesProducts/ui/assets/serviceProductCardImages/deviceProtection.png';
 import appleMacPro from '../../../ServicesProducts/ui/assets/serviceProductCardImages/appleMacPro.png';
 import covers from '../../../ServicesProducts/ui/assets/serviceProductCardImages/covers.png';
+import { useState } from 'react';
 
 const HomeSlider = ({ className }) => {
+  const [swiper, setSwiper] = useState(null)
+
   return (
     <div className={`${styles.container} ${className}`}>
-      <SwiperButton orientation="left" />
+      <SwiperButton orientation="left" onClick={() => swiper.slidePrev()} />
 
-      <Swiper slidesPerView={3} spaceBetween={10}>
+      <Swiper slidesPerView={3} spaceBetween={10} onSwiper={setSwiper}>
         <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
@@ -76,7 +79,7 @@ const HomeSlider = ({ className }) => {
           />{' '}
         </SwiperSlide>
       </Swiper>
-      <SwiperButton orientation="right" />
+      <SwiperButton orientation="right" onClick={() => swiper.slideNext()} />
     </div>
   );
 };

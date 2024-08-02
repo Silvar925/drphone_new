@@ -14,11 +14,8 @@
     //transition: filter 0.3s ease; /* Добавлено для плавного перехода */
   }
 
-  &:hover img {
-    //filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-  }
-
   ul {
+    z-index: 2;
     width: 330px; /* Ширина списка */
     position: fixed;
     top: 80px;
@@ -60,6 +57,7 @@
   }
 
   button {
+    cursor: pointer;
     background-color: var(--alt-color);
     border: none;
     outline: none;

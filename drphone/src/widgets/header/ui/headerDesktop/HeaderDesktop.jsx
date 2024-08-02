@@ -14,7 +14,6 @@ export const HeaderDesktop = () => {
   const listRef = useRef(null);
   const location = useLocation().pathname;
   const { productList } = useParams();
-  console.log('productList: ', productList)
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,7 +36,7 @@ export const HeaderDesktop = () => {
         <Link to="/">
           <img src={logo} alt="drphone_logo" />
         </Link>
-        <h2>{ productList === undefined ? pages[location] : pages[productList]}</h2>
+        <h2>{productList === undefined ? pages[location] : pages[productList]}</h2>
       </div>
       <ListButton onClick={() => setIsOpenList(!isOpenList)} />
 

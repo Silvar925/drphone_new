@@ -1,6 +1,6 @@
 import styles from "./HeaderMobile.module.scss"
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import drPhone from "../../../../shared/asset/logo.svg"
 import list from "../../../../shared/asset/header/list.svg"
@@ -12,25 +12,42 @@ export const HeaderMobile = () => {
     return (
         <header className={styles.header}>
             <div className={styles.inputBox}>
-                <button onClick={()=> setIsOpenList(!isOpenList)}><img src={list} alt="menu" className={styles.icon}/></button>
+                <button onClick={() => setIsOpenList(!isOpenList)}><img src={list} alt="menu" className={styles.icon} /></button>
                 <input />
-                <button><img src={basket} alt="basket" className={styles.icon}/></button>
+                <button><img src={basket} alt="basket" className={styles.icon} /></button>
             </div>
 
             {
                 isOpenList === true &&
                 <ul>
-                    <li><Link to="/phones">Телефоны</Link></li>
-                    <li><Link to="/accessories">Аксессуары</Link></li>
-                    <li><Link to="/used-devices">БУ Устройства</Link></li>
-                    <li><Link to="/repair">Ремонт</Link></li>
-                    <li><Link to="/360-protection">Защита устройства 360</Link></li>
-                    <li><Link to="/cases">Чехлы</Link></li>
-                    <li><Link to="/imac">I MAC</Link></li>
+                    <li>
+                        <Link to="/service-products/phones" onClick={() => setIsOpenList(false)}>Телефоны</Link>
+                    </li>
+                    <li>
+                        <Link to="/map" onClick={() => setIsOpenList(false)}>Карта</Link>
+                    </li>
+                    <li>
+                        <Link to="/service-products/accessories" onClick={() => setIsOpenList(false)}>Аксессуары</Link>
+                    </li>
+                    <li>
+                        <Link to="/service-products/used-devices" onClick={() => setIsOpenList(false)}>БУ Устройства</Link>
+                    </li>
+                    <li>
+                        <Link to="/repair" onClick={() => setIsOpenList(false)}>Ремонт</Link>
+                    </li>
+                    <li>
+                        <Link to="/device-protection" onClick={() => setIsOpenList(false)}>Защита устройства 360</Link>
+                    </li>
+                    <li>
+                        <Link to="/service-products/cases" onClick={() => setIsOpenList(false)}>Чехлы</Link>
+                    </li>
+                    <li>
+                        <Link to="/service-products/imac" onClick={() => setIsOpenList(false)}>I MAC</Link>
+                    </li>
                 </ul>
             }
 
-            <img src={drPhone} alt="drphonelogo"/>
+            <img src={drPhone} alt="drphonelogo" />
         </header>
     )
 }

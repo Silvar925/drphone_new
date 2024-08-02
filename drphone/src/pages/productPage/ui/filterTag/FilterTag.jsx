@@ -1,19 +1,20 @@
 import styles from './FilterTag.module.scss';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { extractBaseUrl, updateProductParams } from '../../model/helpers';
+import { useEffect } from 'react';
 
-export const FilterTag = ({ title, tagList, type, active }) => {
+export const FilterTag = ({ title, tagList, type, active, device }) => {
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const { productPage } = useParams();
 
   const clickTagHandler = async (memory) => {
-    console.log('memory: ', memory);
-    let id;
-    title === 'Память' ? id = 2 : id = [3, 4, 5];
-    let newUrl = await updateProductParams(productPage, memory, id);
+    let id; title === 'Память' ? id = 3 : id = [4, 5, 6];
+    let newUrl = await updateProductParams(productPage, memory, id, device);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
+
+  
 
   return (
     tagList !== undefined &&

@@ -9,11 +9,7 @@
 
   border-radius: 20px;
   box-shadow: 0px 14px 18.8px 0px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(33, 188, 255, 0),
-    rgba(33, 188, 255, 0.5) 100%
-  );
+  background: linear-gradient(180deg,rgba(33, 188, 255, 0),rgba(33, 188, 255, 0.5) 100%);
   transition: background 0.3s ease;
 
   &:hover {
@@ -50,4 +46,31 @@
 .producList {
   width: 232px;
   height: 264px;
+}
+
+
+@media (min-width: 320px) and (max-width: 430px) {
+  .card {
+    width: 100% !important;
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+
+    }
+  }
+
+  .homePage {
+    width: 100%;
+  }
+
+  .producList {
+    width: 100%;
+  }
+
+  header {
+    h2 {
+      font-size: 14px !important;
+    }
+  }
 }

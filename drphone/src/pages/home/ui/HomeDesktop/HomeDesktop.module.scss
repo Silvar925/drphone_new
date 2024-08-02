@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .infoBox {
@@ -22,17 +23,25 @@
     gap: 47px;
     flex-direction: column;
 
-    li a {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      @include setFont('Montserrat', 16px, 600, white);
+    li {
+      img {
+        height: 28px;
+        width: 45px;
+      }
 
-      &:hover {
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-        cursor: pointer;
+      a {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        @include setFont('Montserrat', 16px, 600, white);
+
+        &:hover {
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+          cursor: pointer;
+        }
       }
     }
+
   }
 }
 
@@ -89,10 +98,12 @@
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     top: 0;
   }
+
   50% {
     top: 100px;
   }
@@ -151,12 +162,14 @@
 
 .leftGlow {
   right: 0;
-  background: linear-gradient(to bottom, rgba(0, 51, 204, 0), #1a8cff); /* Градиент сверху вниз от прозрачного до ярко-голубого */
+  background: linear-gradient(to bottom, rgba(0, 51, 204, 0), #1a8cff);
+  /* Градиент сверху вниз от прозрачного до ярко-голубого */
 }
 
 .rightGlow {
   left: 0;
-  background: linear-gradient(to bottom, #ff4b5c, rgba(255, 75, 92, 0)); /* Градиент сверху вниз от ярко-розового до прозрачного */
+  background: linear-gradient(to bottom, #ff4b5c, rgba(255, 75, 92, 0));
+  /* Градиент сверху вниз от ярко-розового до прозрачного */
 }
 
 @keyframes moveDown {
@@ -164,10 +177,12 @@
     top: -200px;
     opacity: 0;
   }
+
   50% {
     top: calc(100% - 200px);
     opacity: 1;
   }
+
   100% {
     top: 100%;
     opacity: 0;
@@ -179,10 +194,12 @@
     top: 100%;
     opacity: 0;
   }
+
   50% {
     top: 0;
     opacity: 1;
   }
+
   100% {
     top: -200px;
     opacity: 0;

@@ -17,7 +17,6 @@ export const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const [image, setImage] = useState(null);
   const location = useLocation().pathname;
-
   let mobile = useIsMobile();
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export const ProductPage = () => {
 
   const attributesProduct = getAttributesProduct(location);
 
-  product && console.log(product.device.allColors)
+  // product && console.log('product: ', product);
 
   return product ? (
     <section className={styles.productContainer}>
@@ -56,18 +55,21 @@ export const ProductPage = () => {
             <FilterColor
               colorList={product.device.allColors}
               active={attributesProduct.color}
+              device = {productList}
             />
             <FilterTag
               tagList={product.device.allMemory}
               type="size"
               title="Память"
               active={attributesProduct.memory}
+              device = {productList}
             />
             <FilterTag
               tagList={product.device.allSim}
               type="type"
               title="SIM"
               active={attributesProduct.sim}
+              device = {productList}
             />
           </div>
         </div>
@@ -86,6 +88,6 @@ export const ProductPage = () => {
       </div>
     </section>
   ) : (
-    <div className={styles.loading}>...Loading</div>
+    <div className={styles.loading}>Товара нет в наличии</div>
   );
 };
