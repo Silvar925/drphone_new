@@ -1,6 +1,6 @@
 .swiperButton {
   width: 120px;
-  height: 53px;
+  height: 60px;
 
   border-radius: 50%;
   cursor: pointer;
@@ -13,6 +13,11 @@
     rgba(33, 188, 255, 0),
     rgba(33, 188, 255, 0.5) 100%
   );
+
+  user-select: none; /* CSS3 */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 
   img {
     height: 18px;

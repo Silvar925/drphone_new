@@ -19,6 +19,11 @@
     padding: 3px;
     border-radius: 10px;
     border: 2px solid white;
+
+    img {
+      // min-width: 123px;
+      max-width: 100%;
+    }
   
     &:hover {
       border: 2px solid var(--button-color);

@@ -36,6 +36,7 @@ const HomeSlider = ({ className }) => {
             img={usedPhones}
             alt="iphone-list"
             title="БУ устройства"
+            url="service-products/usedDevices"
           />
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
@@ -44,22 +45,24 @@ const HomeSlider = ({ className }) => {
             img={accessories}
             alt="accessories"
             title="Аксессуары"
+            url="service-products/accessories"
           />
         </SwiperSlide>
-        <SwiperSlide className={styles.slide}>
+        {/* <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={deviceProtect}
             alt="device-protect"
             title="Защита устройств 360"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide className={styles.slide}>
           <ServiceProductCard
             page="home"
             img={appleMacPro}
             alt="appleMac"
             title="I MAC"
+            url="service-products/iMac"
           />
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
@@ -68,6 +71,7 @@ const HomeSlider = ({ className }) => {
             img={covers}
             alt="covers"
             title="Чехлы"
+            url="service-products/covers"
           />
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
@@ -76,7 +80,8 @@ const HomeSlider = ({ className }) => {
             img={repair}
             alt="repair"
             title="Ремонт"
-          />{' '}
+            url="repair"
+          />
         </SwiperSlide>
       </Swiper>
       <SwiperButton orientation="right" onClick={() => swiper.slideNext()} />

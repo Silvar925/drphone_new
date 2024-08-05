@@ -4,43 +4,62 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { availableMemory, availableSim, extractBaseUrl, updateProductParams } from '../../model/helpers';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../../../../app/setting';
-import { dictionary } from '../../../../shared/untiles/helpers';
+import { dictionary, abbreviatedSlag, abbreviatedSlag1 } from '../../../../shared/untiles/helpers';
 
 export const FilterTag = ({ title, tagList, type, active, device }) => {
-  const [phoneList, setPhoneList] = useState([]);
-  const location = useLocation().pathname;
   const navigate = useNavigate();
-  const { productPage } = useParams();
+  const location = useLocation().pathname;
+  const [phoneList, setPhoneList] = useState([]);
+  const { productPage, productList } = useParams();
 
-  const type2 = location.split('/')[2];
+  let type2
+  let fullUrl
+  let deviceSwitch
+
+  if (productList === 'usedDevices') {
+    type2 = abbreviatedSlag[productPage.split('-')[0]]
+    fullUrl = `${BASE_URL}/${abbreviatedSlag[productPage.split('-')[0]]}`
+    deviceSwitch = abbreviatedSlag1[productPage.split('-')[0]]
+  } else {
+    type2 = location.split('/')[2];
+    fullUrl = `${BASE_URL}/${dictionary[type2]}`
+    deviceSwitch = device
+  }
+
 
   const clickTagHandler = async (memory) => {
     let id = title === 'Память' ? 3 : [4, 5, 6];
-    let newUrl = await updateProductParams(productPage, memory, id, device);
+    console.log('device: ', device)
+    let newUrl = await updateProductParams(productPage, memory, id, deviceSwitch, device);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/${dictionary[type2]}`)
+      .get(fullUrl)
       .then((response) => {
         setPhoneList(response.data);
       })
       .catch((error) => {
         console.error('Ошибка при получении данных пользователя:', error);
       });
-  }, [type2]); // Added dependency array
+  }, [type2])
+
 
   let tagListFiler;
 
+  // phoneList && console.log('phoneList: ', phoneList)
+
   if (title === 'Память') {
+    // console.log('Память: ', phoneList, productPage.split('-')[1])
     tagListFiler = availableMemory(phoneList, productPage.split('-')[1]);
   } else {
+    // console.log('Не память: ', availableSim(phoneList, productPage.split('-')[1])) 
     tagListFiler = availableSim(phoneList, productPage.split('-')[1]);
   }
 
   return (
-    tagListFiler && 
+    tagListFiler &&
     <fieldset className={styles.fieldset}>
       <legend>{title}</legend>
       <ul>

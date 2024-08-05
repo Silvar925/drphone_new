@@ -11,4 +11,19 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+
+  article {
+    img {
+      bottom: 70px;
+      height: 200px;
+    }
+
+    header {
+        padding-left: 40px;
+        padding-top: 10px;
+        padding-right: 40px;
+        padding-bottom: 40px;
+    }
+  }
+
 }

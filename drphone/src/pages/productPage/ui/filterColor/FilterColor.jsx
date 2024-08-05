@@ -5,24 +5,39 @@ import { updateProductParams, extractBaseUrl, slugify, availableColors } from '.
 import { useState, useEffect } from 'react';
 import { getProductList } from '../../../../entities/product/api/request';
 import { BASE_URL } from '../../../../app/setting';
-import { dictionary } from '../../../../shared/untiles/helpers';
+import { dictionary, abbreviatedSlag, abbreviatedSlag1 } from '../../../../shared/untiles/helpers';
 
 
 export const FilterColor = ({ colorList, active, device }) => {
   const [phoneList, setPhoneList] = useState([]);
-  const { productPage } = useParams();
+  const { productPage, productList } = useParams();
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const type = location.split('/')[2];
 
+  let fullUrl
+  let deviceSwitch
+  let deviceDevice
+
+  if (productList === 'usedDevices') {
+    fullUrl = `${BASE_URL}/${abbreviatedSlag[productPage.split('-')[0]]}`
+    deviceSwitch = abbreviatedSlag1[productPage.split('-')[0]]
+
+  } else {
+    fullUrl = `${BASE_URL}/${dictionary[type]}`
+    deviceSwitch = productList
+
+  }
+
   const colorClickHandler = async (color) => {
-    let newUrl = await updateProductParams(productPage, color, 2, device);
+    // console.log('topas: ', productPage, color, 2, device)
+    let newUrl = await updateProductParams(productPage, color, 2, deviceSwitch, deviceSwitch);
     navigate(`${extractBaseUrl(location)}${newUrl}`);
   };
-
+  
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/${dictionary[type]}`)
+      .get(fullUrl)
       .then((response) => {
         setPhoneList(response.data);
       })
@@ -36,6 +51,8 @@ export const FilterColor = ({ colorList, active, device }) => {
   if (phoneList) {
     colorListFilter = availableColors(phoneList, productPage.split('-')[1]);
   }
+
+  // phoneList && console.log('productPage: ', productPage)
 
   return (
     <fieldset className={styles.fieldset}>

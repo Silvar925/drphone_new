@@ -26,6 +26,8 @@ export const ProductPage = () => {
   }, [productList, productPage]);
 
   const attributesProduct = getAttributesProduct(location);
+  
+  console.log('productList: ', productList)
 
   return product ? (
     <section className={styles.productContainer}>
@@ -53,22 +55,30 @@ export const ProductPage = () => {
             <FilterColor
               colorList={product.device.allColors}
               active={attributesProduct.color}
-              device = {productList}
+              device={productList}
             />
-            <FilterTag
-              tagList={product.device.allMemory}
-              type="size"
-              title="Память"
-              active={attributesProduct.memory}
-              device = {productList}
-            />
-            <FilterTag
-              tagList={product.device.allSim}
-              type="type"
-              title="SIM"
-              active={attributesProduct.sim}
-              device = {productList}
-            />
+            {
+              Object.keys(product).includes('memory') &&
+              <FilterTag
+                tagList={product.device.allMemory}
+                type="size"
+                title="Память"
+                active={attributesProduct.memory}
+                device={productList}
+              />
+            }
+
+            {
+              Object.keys(product).includes('sim') &&
+              <FilterTag
+                tagList={product.device.allSim}
+                type="type"
+                title="SIM"
+                active={attributesProduct.sim}
+                device={productList}
+              />
+            }
+
           </div>
         </div>
         <ul className={styles.infoBox}>

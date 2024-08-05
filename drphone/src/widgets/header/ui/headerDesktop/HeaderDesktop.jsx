@@ -56,7 +56,7 @@ export const HeaderDesktop = () => {
           <Link to="/service-products/accessories">Аксессуары</Link>
         </li>
         <li>
-          <Link to="/service-products/used-devices">БУ Устройства</Link>
+          <Link to="/service-products/usedDevices">БУ Устройства</Link>
         </li>
         <li>
           <Link to="/repair">Ремонт</Link>
@@ -65,10 +65,10 @@ export const HeaderDesktop = () => {
           <Link to="/device-protection">Защита устройства 360</Link>
         </li>
         <li>
-          <Link to="/service-products/cases">Чехлы</Link>
+          <Link to="/service-products/covers">Чехлы</Link>
         </li>
         <li>
-          <Link to="/service-products/imac">I MAC</Link>
+          <Link to="/service-products/iMac">I MAC</Link>
         </li>
       </ul>
     </header>

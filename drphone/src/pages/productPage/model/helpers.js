@@ -6,10 +6,9 @@ import { dictionary } from '../../../shared/untiles/helpers';
 
 
 export const updateProductParams = async (idProduct, color, id, device) => {
-  // console.log('asd: ', idProduct)
-  console.log('params: ', idProduct, color, id, device)
   let tempUrl = idProduct.split('-');
-  // console.log('tempUrl: ', tempUrl)
+  console.log('device: ', device)
+console.log('idProduct: ', idProduct.split("-")[idProduct.split("-").length - 1])
 
   tempUrl[id] = slugify(color);
   let updateUrl = tempUrl.join('-');
@@ -19,9 +18,11 @@ export const updateProductParams = async (idProduct, color, id, device) => {
 
   let result;
   if (typeof (id) === 'number') {
+    // console.log('topas: ', true, used)
     result = await search(updateUrl, id, device, phone, device);
   } else {
-    result = await huesas(updateUrl, id, color, device);
+    console.log('topas: ', false)
+    result = await huesas(updateUrl, id, color, device, idProduct.split("-")[1]);
   }
 
   return result;
@@ -46,21 +47,21 @@ export const extractBaseUrl = (url) => {
 };
 
 const search = async (id, support, device, phone) => {
-  console.log('search: ', dictionary[device], device)
+  // console.log('search: ', used)
   const response = (
     await axios.get(`${BASE_URL}/${dictionary[device]}`)
   ).data;
 
-  let productList = convertUniqueId(response);
+  let productList = convertUniqueId2(response);
 
-  // console.log('convert: ', productList)
+  console.log('convert: ', productList)
 
   if (productList.includes(id)) {
-    // console.log('include: ', id)
+    console.log('include: ', id)
     return id;
   } else {
     let ret = getNearestId(productList, id, support, phone);
-    // console.log('ret: ', ret);
+    console.log('ret: ', ret);
     return ret;
   }
 };
@@ -84,8 +85,22 @@ export const convertMemoryList = (memoryList) => {
   return array;
 };
 
-export const convertUniqueId = (uniqueIdList) => {
+export const convertUniqueId = (uniqueIdList, phone) => {
   let arrat = [];
+  console.log('phone: ', phone)
+  for (let key in uniqueIdList) {
+    console.log('123: ', uniqueIdList[key].unique_id.split('-')[1], phone)
+    if (uniqueIdList[key].unique_id.split('-')[1] === phone) {
+      arrat.push(uniqueIdList[key].unique_id);
+    }
+  }
+
+  return arrat;
+};
+
+export const convertUniqueId2 = (uniqueIdList, phone) => {
+  let arrat = [];
+  console.log('phone: ', phone)
   for (let key in uniqueIdList) {
     arrat.push(uniqueIdList[key].unique_id);
   }
@@ -95,14 +110,13 @@ export const convertUniqueId = (uniqueIdList) => {
 
 const getNearestId = (productList, id, support, phone) => {
   // console.log('parametr: ', productList, id, support)
-  console.log('phone: ', phone)
+  // console.log('used: ', used)
 
   let temp;
   let tempColor = id.split('-')[support];
 
   for (let key in productList) {
-    console.log('productList[key]: ',)
-
+    // productList[key].split('-')[productList[key].split('-').length-1]
     if (productList[key].split('-')[1] === phone) {
       temp = productList[key].split('-');
 
@@ -111,7 +125,7 @@ const getNearestId = (productList, id, support, phone) => {
       // console.log('two: ', temp[support], tempColor)
 
       if (temp[support] === tempColor) {
-        // console.log('getNearestID: ', temp.join('-'));
+        console.log('getNearestID: ', temp.join('-'));
         return temp.join('-');
       }
     }

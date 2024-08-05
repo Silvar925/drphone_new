@@ -11,6 +11,12 @@ export const abbreviatedSlag = {
     'as': 'api/Core/accessories-options/'
 }
 
+export const abbreviatedSlag1 = {
+    'mb' : 'phones',
+    'imac': 'api/Core/imac-options/',
+    'as': 'api/Core/accessories-options/'
+}
+
 export const priceLsit = [
     {
         name: 'Диагностика / Старт АКБ',

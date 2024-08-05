@@ -3,28 +3,28 @@ import { convertUniqueId } from './helpers';
 import { BASE_URL } from '../../../app/setting';
 import { dictionary } from '../../../shared/untiles/helpers';
 
-export const huesas = (url, id, param, device) => {
-  // console.log('device str: ', device)
-
+export const huesas = (url, id, param, device, phone) => {
   let newUrl = url.split('-');
   let newParam = param.split(' ');
   newUrl[id[0]] = newParam[0];
   newUrl[id[2]] = newParam[2];
   newParam = newUrl.join('-');
 
-  return getNearestId(newParam, param, device);
+  return getNearestId(newParam, param, device, phone);
   // return newParam
 };
 
-const getNearestId = async (url, param, device) => {
+const getNearestId = async (url, param, device, phone) => {
   const response = (
     await axios.get(`${BASE_URL}/${dictionary[device]}`)
   ).data;
 
-  let productList = convertUniqueId(response);
+  console.log('response: ', response, device);
+
+  let productList = convertUniqueId(response, phone);
 
   if (productList.includes(url)) {
-    // console.log(true);
+    console.log(true);
   } else {
     return search(productList, param);
   }
@@ -35,15 +35,17 @@ const search = (list, item) => {
   newItem.splice(1, 1);
   newItem = newItem.join('--');
 
-  // console.log('newItem: ', newItem);
+  console.log('newItem: ', newItem);
 
   for (let key in list) {
+    console.log('topas: ', list[key])
     let value = getMemory(list[key]);
+    console.log('newItem === value: ', newItem, value)
     if (newItem === value) {
-      // console.log('listKey: ', listKey)
+      console.log('listKey: ', list[key])
       return list[key];
     } else {
-      // console.log('TOPAS: ', newItem, value);
+      console.log('TOPAS: ', newItem, value);
     }
   }
 };
@@ -63,7 +65,7 @@ const getMemory = (item) => {
   memory.push(newItem[6]);
 
   memory = memory.join('--');
-  // console.log('me: ', memory)
 
+  // console.log('me: ', memory)
   return memory;
 };

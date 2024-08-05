@@ -31,12 +31,12 @@ export const ProductList = () => {
       if (item.used === true) {
         return (
           <ProductCard key={index}
-                       img={item.images[0].image}
-                       alt="Product Image"
-                       title={item.device.name}
-                       url={item.unique_id}
-                       price={item.price}
-                       oldPrice={item.discountedPrice}
+            img={item.images[0].image}
+            alt="Product Image"
+            title={item.device.name}
+            url={item.unique_id}
+            price={item.price}
+            oldPrice={item.discountedPrice}
           />
         );
       } else {
@@ -52,14 +52,14 @@ export const ProductList = () => {
           if (item.used === false) {
             return (
               <ProductCard key={index}
-                           img={item.images[0].image}
-                           alt="iPhone 15 Pro"
-                           title={item.device.name}
-                           url={item.unique_id}
-                           price={item.price}
-                           oldPrice={item.discountedPrice}
+                img={item.images[0].image}
+                alt="iPhone 15 Pro"
+                title={item.device.name}
+                url={item.unique_id}
+                price={item.price}
+                oldPrice={item.discountedPrice}
               />
-              
+
             );
           } else {
             return null;
