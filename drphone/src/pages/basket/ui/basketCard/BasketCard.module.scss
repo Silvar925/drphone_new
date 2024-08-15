@@ -10,6 +10,14 @@
     display: flex;
     gap: 20px;
     align-items: center;
+
+    img {
+        padding: 5px;
+        height: 100px;
+        width: 100px;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
 }
 
 .info {
@@ -17,6 +25,23 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+
+    p {
+        width: 270px;
+        line-height: 25px;
+        @include setFont('Montserrat', 16px, 600, black);
+    }
+
+    button {
+        background: none;
+        border: none;
+        text-align: left;
+        @include setFont('Montserrat', 16px, 600, #848484);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .priceBox {

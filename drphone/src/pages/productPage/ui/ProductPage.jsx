@@ -27,7 +27,7 @@ export const ProductPage = () => {
 
   const attributesProduct = getAttributesProduct(location);
   
-  console.log('productList: ', productList)
+  // product && console.log('product: ', product.name)
 
   return product ? (
     <section className={styles.productContainer}>

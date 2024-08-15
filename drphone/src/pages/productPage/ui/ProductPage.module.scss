@@ -83,13 +83,19 @@
     width: 100%;
     padding: 0px 10px;
     margin-bottom: 30px;
+
+    header {
+      h2 {
+        font-size: 24px !important;
+      }
+    }
   }
 
   .imageBox {
     width: 100%;
     height: auto;
 
-    .imgBox {
+    .imgBox { 
       height: auto;
     }
 

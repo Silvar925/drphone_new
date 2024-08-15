@@ -58,12 +58,12 @@ const HomeMobile = () => {
 
             <section className={styles.serviceListBox}>
                 <ul className={styles.mainGrid}>
-                    <li><ServiceProductCard img={phones} alt="iphone-pro-max" title="Телефоны" url="phones" /></li>
-                    <li><ServiceProductCard img={usedPhones} alt="iphone-list" title="БУ устройства" url="usedDevices" /></li>
-                    <li><ServiceProductCard img={accessories} alt="accessories" title="Аксессуары" url="accessories" /></li>
+                    <li><ServiceProductCard img={phones} alt="iphone-pro-max" title="Телефоны" url="service-products/phones" /></li>
+                    <li><ServiceProductCard img={usedPhones} alt="iphone-list" title="БУ устройства" url="service-products/usedDevices" /></li>
+                    <li><ServiceProductCard img={accessories} alt="accessories" title="Аксессуары" url="service-products/accessories" /></li>
                     <li><ServiceProductCard img={repair} alt="repair" title="Ремонт" url="/repair" /></li>
                     <li><ServiceProductCard img={deviceProtect} alt="device-protect" title="Защита устройств 360" url="/device-protection" /></li>
-                    <li><ServiceProductCard img={appleMacPro} alt="appleMac" title="I MAC" url="iMac" /></li>
+                    <li><ServiceProductCard img={appleMacPro} alt="appleMac" title="I MAC" url="service-products/iMac" /></li>
 
                 </ul>
 
@@ -75,7 +75,7 @@ const HomeMobile = () => {
                 }}>
                     <li style={{
                         width: '50%'
-                    }}><ServiceProductCard img={covers} alt="covers" title="Чехлы" url="covers" /></li>
+                    }}><ServiceProductCard img={covers} alt="covers" title="Чехлы" url="service-products/covers" /></li>
                 </ul>
             </section>
 

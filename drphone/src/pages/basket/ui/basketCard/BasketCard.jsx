@@ -8,8 +8,8 @@ const BasketCard = ({ img, alt, name, price, onClick }) => {
                 <img src={img} alt={alt} />
 
                 <div className={styles.info}>
-                    {name}
-                    <button>Удалить</button>
+                    <p>{name}</p>
+                    <button onClick={onClick}>Удалить</button>
                 </div>
 
             </div>
